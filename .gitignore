@@ -1,0 +1,45 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.qiskit/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build and package output
+build/
+dist/
+*.egg-info/
+
+# Editors
+.vscode/
+.idea/
+
+# Operating-system files
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+~$*
+
+# Large or generated raw sampling files
+results/*.b8
+results/*.dets
+results/*.obs
+results/*.r8
+results/*.hits
+
+# Keep CSV summaries, figures, notebooks and reports tracked
