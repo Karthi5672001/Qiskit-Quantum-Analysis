@@ -155,31 +155,31 @@ Increasing code distance raises the minimum weight of an undetectable logical op
 
 An adaptive Sinter experiment was performed for rotated surface-code logical-memory circuits at:
 
-\[
-d\in\{3,5,7,9\}.
-\]
+$$
+d \in \{3, 5, 7, 9\}.
+$$
 
-Circuit-level physical error probabilities between approximately \(0.3\%\) and \(1.5\%\) were sampled. Each configuration stopped after reaching either:
+Circuit-level physical error probabilities between approximately $0.3\%$ and $1.5\%$ were sampled. Each configuration stopped after reaching either:
 
 - 1,000 logical failures; or
 - 1,000,000 shots.
 
 The logical-error curves show a preliminary finite-distance crossing region of approximately:
 
-\[
-p_{\mathrm{cross}}\approx0.65\%\text{ to }0.70\%.
-\]
+$$
+p_{\mathrm{cross}} \approx 0.65\% \text{ to } 0.70\%.
+$$
 
-At a physical error probability of \(0.3\%\), the measured logical failure rates were:
+At a physical error probability of $0.3\%$, the measured logical failure rates were:
 
 | Code distance | Logical failure rate |
 |---:|---:|
-| 3 | \(6.913\times10^{-3}\) |
-| 5 | \(3.742\times10^{-3}\) |
-| 7 | \(1.733\times10^{-3}\) |
-| 9 | \(7.30\times10^{-4}\) |
+| 3 | $6.913 \times 10^{-3}$ |
+| 5 | $3.742 \times 10^{-3}$ |
+| 7 | $1.733 \times 10^{-3}$ |
+| 9 | $7.30 \times 10^{-4}$ |
 
-Increasing the distance from 3 to 9 reduced the measured logical failure rate by approximately \(9.5\times\) for this simulated configuration.
+Increasing the distance from 3 to 9 reduced the measured logical failure rate by approximately $9.5\times$ for this simulated configuration.
 
 This is a **preliminary finite-distance crossing estimate**, not a precision asymptotic threshold. A stronger estimate would require:
 
