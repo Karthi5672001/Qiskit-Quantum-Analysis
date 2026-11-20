@@ -114,6 +114,37 @@ Increasing the distance from 3 to 9 therefore reduced the measured logical failu
 
 ![Rotated surface-code threshold study](figures/surface_code_threshold_sinter.png)
 
+### 6. Decoder backlog modelling
+
+`decoder_latency_backlog.ipynb`
+
+The classical decoder was modelled as a queue in which syndrome jobs arrive at a fixed interval and require variable service times.
+
+For $c$ equivalent decoder workers, mean utilisation is:
+
+$$
+\rho = \frac{\mathbb{E}[S]}{c T_a},
+$$
+
+where:
+
+- $\mathbb{E}[S]$ is the mean service time;
+- $T_a$ is the syndrome arrival interval;
+- $c$ is the number of parallel decoder workers.
+
+A configuration with $\rho \geq 1$ is overloaded on average and develops a growing backlog. A configuration with $\rho < 1$ can still miss short deadlines because of service-time variability and tail-latency events.
+
+The queue model evaluates:
+
+- mean and percentile waiting times;
+- mean and percentile response times;
+- deadline-miss probability;
+- maximum backlog;
+- required worker count;
+- stable and overloaded operating regions.
+
+![Classical decoder backlog comparison](figures/decoder_backlog_comparison.png)
+
 ### 8. Asymmetric-noise sensitivity
 
 `asymmetric_noise_sensitivity.ipynb`
