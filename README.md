@@ -30,6 +30,8 @@ The introductory analysis covers:
 
 ### 2. Three-qubit repetition code
 
+repetition_code.ipynb
+
 A three-qubit bit-flip repetition code was implemented from first principles:
 
 \[
