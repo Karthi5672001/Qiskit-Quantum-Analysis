@@ -220,31 +220,31 @@ The results distinguish between:
 
 The decoder was modelled as a multi-worker queue receiving syndrome jobs at a fixed interval.
 
-For \(c\) equivalent decoder workers, mean utilisation is:
+For $c$ equivalent decoder workers, mean utilisation is:
 
-\[
-\rho=\frac{\mathbb{E}[S]}{cT_a},
-\]
+$$
+\rho = \frac{\mathbb{E}[S]}{c T_a},
+$$
 
 where:
 
-- \(\mathbb{E}[S]\) is mean service time;
-- \(T_a\) is the syndrome arrival interval;
-- \(c\) is the number of workers.
+- $\mathbb{E}[S]$ is mean service time;
+- $T_a$ is the syndrome arrival interval;
+- $c$ is the number of workers.
 
 A configuration with:
 
-\[
-\rho\geq1
-\]
+$$
+\rho \geq 1
+$$
 
 is overloaded on average and develops a growing backlog.
 
 A configuration with:
 
-\[
-\rho<1
-\]
+$$
+\rho < 1
+$$
 
 can still miss short deadlines because of service-time variability and latency-tail events.
 
