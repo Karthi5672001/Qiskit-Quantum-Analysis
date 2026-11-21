@@ -198,9 +198,9 @@ One representative distance-three benchmark produced approximately:
 
 | Measurement | Observed value |
 |---|---:|
-| Batched effective cost | $0.0583\,\mu\mathrm{s}$ per shot |
-| Median individual-call latency | $2.80\,\mu\mathrm{s}$ |
-| 99th-percentile individual-call latency | $5.00\,\mu\mathrm{s}$ |
+| Batched effective cost | $0.0583     \mu\mathrm{s}$ per shot |
+| Median individual-call latency | $2.80     \mu\mathrm{s}$ |
+| 99th-percentile individual-call latency | $5.00     \mu\mathrm{s}$ |
 
 The individual-call median was approximately $48\times$ the effective batch cost per shot.
 
