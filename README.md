@@ -1,7 +1,9 @@
 # Qiskit-Quantum-Analysis
 # Circuit-Level Quantum Error Correction and Heterogeneous Classical Processing
 
-This project investigates quantum error correction as a quantum-classical systems problem. It combines circuit-level simulation of repetition and rotated surface codes with minimum-weight perfect-matching decoding, statistical error analysis, classical decoder benchmarking, queue-based latency modelling, and GPU-accelerated detector-event preprocessing.
+This project investigates quantum error correction as a quantum-classical systems problem. It progresses from introductory Qiskit studies of quantum states and noise to repetition-code validation, circuit-level rotated surface-code simulation with Stim, and minimum-weight perfect-matching decoding with PyMatching. The work includes a preliminary finite-distance threshold study, asymmetric-noise analysis, decoder latency and backlog modelling, and a reusable Python package supported by 63 automated tests.
+
+The project also evaluates GPU-accelerated detector-event preprocessing using CuPy on an NVIDIA RTX 5090. Dense and bit-packed representations, CPU-GPU crossover behaviour, transfer overhead, and zero-event filtering before CPU decoding are compared. The results show that GPU kernels can provide substantial throughput for large detector matrices, but data movement and orchestration determine whether that acceleration benefits the complete pipeline. The broader conclusion is that practical fault-tolerant quantum computing requires the quantum code, decoder algorithm, communication path, and classical hardware architecture to be designed together.
 
 ## Software stack
 
