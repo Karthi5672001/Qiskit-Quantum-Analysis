@@ -190,6 +190,8 @@ This is a **preliminary finite-distance crossing estimate**, not a precision asy
 
 ## CPU decoder performance
 
+`decoder_latency_backlog.ipynb` `decoder_complexity_analysis.ipynb`
+
 PyMatching was benchmarked in both batch and individual-call modes.
 
 One representative distance-three benchmark produced approximately:
@@ -217,6 +219,8 @@ The results distinguish between:
 - **tail latency**, relevant to deadlines and temporary backlog.
 
 ## Queue and backlog modelling
+
+`decoder_latency_backlog.ipynb`
 
 The decoder was modelled as a multi-worker queue receiving syndrome jobs at a fixed interval.
 
