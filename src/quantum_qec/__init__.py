@@ -1,0 +1,111 @@
+"""Quantum error-correction simulation and decoder-analysis package."""
+
+from quantum_qec.benchmarking import (
+    BatchBenchmark,
+    benchmark_batch_decoding,
+    benchmark_batch_sizes,
+    benchmark_individual_decoding,
+    summarise_latency,
+)
+from quantum_qec.circuits import (
+    CircuitNoiseModel,
+    build_detector_error_model,
+    create_repetition_memory_circuit,
+    create_rotated_surface_code_circuit,
+)
+from quantum_qec.decoding import (
+    calculate_logical_failure_count,
+    calculate_logical_failure_probability,
+    calculate_logical_failures,
+    create_matching_decoder,
+    decode_detection_events,
+)
+from quantum_qec.gpu import (
+    GpuDeviceInformation,
+    PreprocessingTiming,
+    benchmark_event_counting,
+    choose_safe_gpu_batch_size,
+    cpu_event_counts,
+    cpu_event_density,
+    cpu_pack_detector_bits,
+    cpu_zero_event_mask,
+    cupy_available,
+    estimate_detector_matrix_bytes,
+    get_gpu_device_information,
+    gpu_event_counts,
+    gpu_event_density,
+    gpu_pack_detector_bits,
+    gpu_zero_event_mask,
+)
+from quantum_qec.queueing import (
+    calculate_backlog_at_arrivals,
+    calculate_worker_utilisation,
+    minimum_workers_for_utilisation,
+    simulate_decoder_queue,
+    summarise_queue,
+)
+from quantum_qec.simulation import (
+    DecodingResult,
+    DetectorSamples,
+    compile_detector_sampler,
+    sample_detection_events,
+    simulate_and_decode,
+)
+from quantum_qec.statistics import (
+    BinomialInterval,
+    approximate_binomial_interval,
+    binomial_standard_error,
+    repetition_code_logical_failure_probability,
+    rule_of_three_upper_bound,
+    trials_for_expected_failures,
+)
+
+__version__ = "0.2.0"
+
+__all__ = [
+    "BatchBenchmark",
+    "BinomialInterval",
+    "CircuitNoiseModel",
+    "DecodingResult",
+    "DetectorSamples",
+    "GpuDeviceInformation",
+    "PreprocessingTiming",
+    "approximate_binomial_interval",
+    "benchmark_batch_decoding",
+    "benchmark_batch_sizes",
+    "benchmark_event_counting",
+    "benchmark_individual_decoding",
+    "binomial_standard_error",
+    "build_detector_error_model",
+    "calculate_backlog_at_arrivals",
+    "calculate_logical_failure_count",
+    "calculate_logical_failure_probability",
+    "calculate_logical_failures",
+    "calculate_worker_utilisation",
+    "choose_safe_gpu_batch_size",
+    "compile_detector_sampler",
+    "cpu_event_counts",
+    "cpu_event_density",
+    "cpu_pack_detector_bits",
+    "cpu_zero_event_mask",
+    "create_matching_decoder",
+    "create_repetition_memory_circuit",
+    "create_rotated_surface_code_circuit",
+    "cupy_available",
+    "decode_detection_events",
+    "estimate_detector_matrix_bytes",
+    "get_gpu_device_information",
+    "gpu_event_counts",
+    "gpu_event_density",
+    "gpu_pack_detector_bits",
+    "gpu_zero_event_mask",
+    "minimum_workers_for_utilisation",
+    "repetition_code_logical_failure_probability",
+    "rule_of_three_upper_bound",
+    "sample_detection_events",
+    "simulate_and_decode",
+    "simulate_decoder_queue",
+    "summarise_latency",
+    "summarise_queue",
+    "trials_for_expected_failures",
+]

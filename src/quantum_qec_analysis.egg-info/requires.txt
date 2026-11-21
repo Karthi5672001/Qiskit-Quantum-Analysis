@@ -1,0 +1,15 @@
+numpy
+pandas
+matplotlib
+qiskit
+qiskit-aer
+stim
+sinter
+pymatching
+
+[dev]
+pytest
+jupyterlab
+
+[gpu]
+cupy-cuda13x[ctk]>=14.2
