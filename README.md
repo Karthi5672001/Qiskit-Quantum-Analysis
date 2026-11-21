@@ -325,11 +325,16 @@ The GPU study investigates whether detector-event preprocessing can benefit from
 
 The tested environment used:
 
-- NVIDIA GeForce RTX 5090;
-- approximately 32 GB of GPU memory;
-- CuPy 14.2;
-- CUDA 13.2 runtime linked to CuPy;
-- compute capability 12.0.
+| Component | Configuration |
+|---|---|
+| GPU | NVIDIA GeForce RTX 5090 |
+| GPU memory | Approximately 32 GB |
+| Compute capability | 12.0 |
+| CuPy | 14.2.0 |
+| CuPy-linked CUDA runtime | 13.2 |
+| NVIDIA driver CUDA capability | 13.5 |
+| Local CUDA Toolkit | 13.3 |
+| Python | 3.14.6 |
 
 This is a preprocessing and systems study. PyMatching remains a CPU decoder, so the work is **not** a GPU implementation of surface-code minimum-weight perfect matching.
 
@@ -359,7 +364,7 @@ CPU and GPU implementations were verified to agree for:
 - zero-event masks;
 - bit-packed detector representations.
 
-CuPy 14.2 does not support `packbits(..., axis=1)`. The project therefore implements explicit row-wise GPU bit packing using:
+CuPy 14.2.0 does not support `packbits(..., axis=1)`. The project therefore implements explicit row-wise GPU bit packing using:
 
 - zero padding to a whole number of bytes;
 - groups of eight detector values;
@@ -372,11 +377,7 @@ The output was verified against NumPy’s row-wise `packbits` operation.
 
 A synthetic dense Boolean detector matrix containing:
 
-$$
-100{,}000 \times 1{,}000
-$$
-
-entries, approximately $95.37\ \mathrm{MiB}$, produced the following representative result:
+$100{,}000 \times 1{,}000$ entries, approximately $95.37\ \mathrm{MiB}$, produced the following representative result:
 
 | Component | Median time |
 |---|---:|
