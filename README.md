@@ -259,6 +259,8 @@ The model evaluates:
 
 ## Decoder-complexity analysis
 
+`decoder_complexity_analysis.ipynb`
+
 Decoder cost was analysed against:
 
 - surface-code distance;
