@@ -1,0 +1,2 @@
+physical_error_probability,distance,shots,detectors,zero_event_fraction,decoded_fraction,full_decode_ms,gpu_filter_ms,cpu_selection_ms,filtered_decode_ms,reconstruction_ms,hybrid_total_ms,hybrid_speedup,predictions_equal
+0.001,3,10000,24,0.8368,0.1632,0.6935999263077974,0.1501999795436859,0.03869994543492794,0.5928000900894403,0.02289994154125452,0.8006999269127846,0.8662420252516735,True

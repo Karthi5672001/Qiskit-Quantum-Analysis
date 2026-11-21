@@ -1,0 +1,9 @@
+logical_value,error_qubit,measured_state,shots,decoded_value,decoding_successful
+0,none,000,4096.0,0,True
+0,0,001,4096.0,0,True
+0,1,010,4096.0,0,True
+0,2,100,4096.0,0,True
+1,none,111,,1,True
+1,0,110,,1,True
+1,1,101,,1,True
+1,2,011,,1,True

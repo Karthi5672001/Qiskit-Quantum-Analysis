@@ -1,0 +1,2 @@
+tested_configurations,winning_configurations,maximum_hybrid_speedup,median_hybrid_speedup,mean_zero_event_fraction,minimum_zero_event_fraction,maximum_zero_event_fraction,all_predictions_equal
+8,3,1.2978190890410215,0.9825658546182594,0.38388875,0.0005,0.8489,True

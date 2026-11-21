@@ -1,0 +1,2 @@
+memory_basis,distance,rounds,shots,clifford_depolarisation,data_depolarisation,measurement_flip,reset_flip,qubits,detectors,matching_edges,logical_failures,logical_failure_probability,standard_error,confidence_lower_95,confidence_upper_95,mean_detection_events,median_detection_events,p95_detection_events,sampling_seconds,decoding_seconds,decoder_microseconds_per_shot
+X,7,7,200000,0.001,0.0005,0.005,0.002,118,336,1558,10,5e-05,1.5810993011193194e-05,1.901045369806134e-05,8.098954630193867e-05,8.475875,8.0,16.0,0.061174599919468164,0.3103001000126824,1.551500500063412

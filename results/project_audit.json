@@ -1,0 +1,1064 @@
+{
+  "environment": {
+    "logical_cpu_count": 16,
+    "machine": "AMD64",
+    "operating_system": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "cupy-cuda13x": "14.2.0",
+      "jupyterlab": "4.6.6",
+      "matplotlib": "3.11.2",
+      "numpy": "2.5.5",
+      "pandas": "3.1.1",
+      "pymatching": "2.4.0",
+      "pytest": "9.2.0",
+      "qiskit": "2.6.2",
+      "qiskit-aer": "0.18.4",
+      "sinter": "1.16.0",
+      "stim": "1.16.0"
+    },
+    "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+    "python_executable": "C:\\Users\\Karthi\\.qiskit\\Scripts\\python.exe",
+    "python_version": "3.14.6"
+  },
+  "generated_utc": "2026-11-19T04:28:54.785151+00:00",
+  "headline_figures": {
+    "asymmetric_noise": {
+      "existing": [
+        "figures/asymmetric_noise_sensitivity_ranking.png"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "backlog": {
+      "existing": [
+        "figures/decoder_backlog_comparison.png"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "complexity": {
+      "existing": [
+        "figures/decoder_batch_cost_by_distance.png",
+        "figures/decoder_batch_size_efficiency.png"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "gpu_dense_preprocessing": {
+      "existing": [
+        "figures/gpu_event_count_crossover.png",
+        "figures/gpu_speedup_by_distance.png",
+        "figures/gpu_transfer_breakdown.png"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "gpu_hybrid_filtering": {
+      "existing": [
+        "figures/gpu_hybrid_filtering_pilot.png",
+        "figures/gpu_hybrid_filtering_opportunity.png"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "gpu_packed_preprocessing": {
+      "existing": [
+        "figures/gpu_packed_transfer_comparison.png"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "latency": {
+      "existing": [
+        "figures/decoder_latency_distribution.png"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "threshold": {
+      "existing": [
+        "figures/surface_code_threshold_sinter.png"
+      ],
+      "missing": [],
+      "present": true
+    }
+  },
+  "headline_results": {
+    "asymmetric_noise": {
+      "existing": [
+        "results/asymmetric_noise_sensitivity.csv"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "complexity": {
+      "existing": [
+        "results/decoder_complexity_summary.csv"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "gpu_dense_preprocessing": {
+      "existing": [
+        "results/gpu_detector_preprocessing.csv",
+        "results/gpu_preprocessing_crossover.csv"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "gpu_hybrid_filtering": {
+      "existing": [
+        "results/gpu_hybrid_filtering.csv",
+        "results/gpu_hybrid_filtering_summary.csv"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "gpu_packed_preprocessing": {
+      "existing": [
+        "results/gpu_packed_detector_preprocessing.csv",
+        "results/gpu_packed_preprocessing_summary.csv"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "latency": {
+      "existing": [
+        "results/decoder_latency_summary.csv",
+        "results/decoder_single_shot_latency.csv"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "queueing": {
+      "existing": [
+        "results/decoder_queue_sweep.csv"
+      ],
+      "missing": [],
+      "present": true
+    },
+    "threshold": {
+      "existing": [
+        "results/surface_code_threshold_summary.csv",
+        "results/surface_code_threshold_sinter.csv"
+      ],
+      "missing": [],
+      "present": true
+    }
+  },
+  "inventory": {
+    "empty_files": [],
+    "figure_count": 52,
+    "figures": [
+      {
+        "modified_utc": "2026-11-18T22:52:00.539734+00:00",
+        "path": "figures/asymmetric_noise_detection_events.png",
+        "size_bytes": 141745
+      },
+      {
+        "modified_utc": "2026-11-18T22:52:06.528208+00:00",
+        "path": "figures/asymmetric_noise_distance_scaling.png",
+        "size_bytes": 133621
+      },
+      {
+        "modified_utc": "2026-11-18T22:52:00.330559+00:00",
+        "path": "figures/asymmetric_noise_relative_sensitivity.png",
+        "size_bytes": 163827
+      },
+      {
+        "modified_utc": "2026-11-18T22:52:00.068817+00:00",
+        "path": "figures/asymmetric_noise_sensitivity.png",
+        "size_bytes": 158254
+      },
+      {
+        "modified_utc": "2026-11-18T22:52:00.698857+00:00",
+        "path": "figures/asymmetric_noise_sensitivity_ranking.png",
+        "size_bytes": 70260
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:18.335077+00:00",
+        "path": "figures/bell_state_correlation_comparison.png",
+        "size_bytes": 41218
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:19.842938+00:00",
+        "path": "figures/bell_state_correlation_sweep.png",
+        "size_bytes": 68614
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:18.846620+00:00",
+        "path": "figures/bell_state_depolarising_noise.png",
+        "size_bytes": 42890
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:19.700606+00:00",
+        "path": "figures/bell_state_error_rate_sweep.png",
+        "size_bytes": 76788
+      },
+      {
+        "modified_utc": "2026-11-18T22:31:59.697191+00:00",
+        "path": "figures/decoder_backlog_comparison.png",
+        "size_bytes": 109223
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:15.322930+00:00",
+        "path": "figures/decoder_batch_cost_by_distance.png",
+        "size_bytes": 94748
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:22.982404+00:00",
+        "path": "figures/decoder_batch_size_efficiency.png",
+        "size_bytes": 77423
+      },
+      {
+        "modified_utc": "2026-11-18T22:32:00.977878+00:00",
+        "path": "figures/decoder_deadline_miss_heatmap.png",
+        "size_bytes": 65200
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:15.165074+00:00",
+        "path": "figures/decoder_graph_complexity.png",
+        "size_bytes": 99581
+      },
+      {
+        "modified_utc": "2026-11-18T22:31:59.024725+00:00",
+        "path": "figures/decoder_latency_distribution.png",
+        "size_bytes": 58119
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:15.648076+00:00",
+        "path": "figures/decoder_latency_event_scatter.png",
+        "size_bytes": 326745
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:23.254544+00:00",
+        "path": "figures/decoder_latency_model.png",
+        "size_bytes": 243340
+      },
+      {
+        "modified_utc": "2026-11-18T22:31:59.201544+00:00",
+        "path": "figures/decoder_latency_vs_detection_events.png",
+        "size_bytes": 101185
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:15.459350+00:00",
+        "path": "figures/decoder_throughput_by_distance.png",
+        "size_bytes": 92291
+      },
+      {
+        "modified_utc": "2026-11-18T22:32:01.179282+00:00",
+        "path": "figures/decoder_utilisation_heatmap.png",
+        "size_bytes": 58066
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:17.704853+00:00",
+        "path": "figures/finite_shot_absolute_error.png",
+        "size_bytes": 74100
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:17.490492+00:00",
+        "path": "figures/finite_shot_probability.png",
+        "size_bytes": 70551
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:17.922058+00:00",
+        "path": "figures/finite_shot_uncertainty.png",
+        "size_bytes": 106180
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:44.381987+00:00",
+        "path": "figures/gpu_event_count_crossover.png",
+        "size_bytes": 156115
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:47.220502+00:00",
+        "path": "figures/gpu_hybrid_filtering_opportunity.png",
+        "size_bytes": 84802
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:46.992257+00:00",
+        "path": "figures/gpu_hybrid_filtering_pilot.png",
+        "size_bytes": 99691
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:43.982721+00:00",
+        "path": "figures/gpu_hybrid_filtering_speedup.png",
+        "size_bytes": 120035
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:46.548946+00:00",
+        "path": "figures/gpu_packed_transfer_comparison.png",
+        "size_bytes": 314426
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:44.747775+00:00",
+        "path": "figures/gpu_speedup_by_distance.png",
+        "size_bytes": 227850
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:44.993360+00:00",
+        "path": "figures/gpu_transfer_breakdown.png",
+        "size_bytes": 61615
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:18.160529+00:00",
+        "path": "figures/ideal_bell_state_measurements.png",
+        "size_bytes": 29588
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:17.084570+00:00",
+        "path": "figures/monte_carlo_convergence_scatter.png",
+        "size_bytes": 116371
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:17.317070+00:00",
+        "path": "figures/monte_carlo_uncertainty_scaling.png",
+        "size_bytes": 107689
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:16.208338+00:00",
+        "path": "figures/physical_vs_logical_error_probability.png",
+        "size_bytes": 121675
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:16.768082+00:00",
+        "path": "figures/plus_state_measurements.png",
+        "size_bytes": 27940
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:37.348141+00:00",
+        "path": "figures/pymatching_decoder_scaling.png",
+        "size_bytes": 114627
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:37.873759+00:00",
+        "path": "figures/pymatching_single_shot_latency.png",
+        "size_bytes": 58174
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:17.547215+00:00",
+        "path": "figures/rare_event_monte_carlo_cost.png",
+        "size_bytes": 75900
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:18.681197+00:00",
+        "path": "figures/readout_error_comparison.png",
+        "size_bytes": 37546
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:14.593297+00:00",
+        "path": "figures/repetition_code_correction.png",
+        "size_bytes": 54436
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:15.758355+00:00",
+        "path": "figures/repetition_code_correction_limit.png",
+        "size_bytes": 45739
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:16.488093+00:00",
+        "path": "figures/repetition_code_error_suppression.png",
+        "size_bytes": 95524
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:11.637851+00:00",
+        "path": "figures/repetition_code_logical_states.png",
+        "size_bytes": 37283
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:13.568636+00:00",
+        "path": "figures/repetition_code_syndromes.png",
+        "size_bytes": 47931
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:37.670873+00:00",
+        "path": "figures/repetition_detector_graph_scaling.png",
+        "size_bytes": 94406
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:33.333627+00:00",
+        "path": "figures/stim_detection_event_distribution.png",
+        "size_bytes": 39285
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:37.084134+00:00",
+        "path": "figures/stim_repetition_logical_error_scaling.png",
+        "size_bytes": 169369
+      },
+      {
+        "modified_utc": "2026-11-18T22:21:06.420885+00:00",
+        "path": "figures/surface_code_basis_event_distributions.png",
+        "size_bytes": 52304
+      },
+      {
+        "modified_utc": "2026-11-18T22:21:08.723267+00:00",
+        "path": "figures/surface_code_decoder_scaling.png",
+        "size_bytes": 86360
+      },
+      {
+        "modified_utc": "2026-11-18T22:21:08.566785+00:00",
+        "path": "figures/surface_code_distance_scaling.png",
+        "size_bytes": 102832
+      },
+      {
+        "modified_utc": "2026-11-18T22:19:18.273046+00:00",
+        "path": "figures/surface_code_pairwise_crossings.png",
+        "size_bytes": 145505
+      },
+      {
+        "modified_utc": "2026-11-18T23:26:31.859380+00:00",
+        "path": "figures/surface_code_threshold_sinter.png",
+        "size_bytes": 166791
+      }
+    ],
+    "notebook_count": 9,
+    "notebooks": [
+      {
+        "modified_utc": "2026-11-18T22:50:44.309799+00:00",
+        "path": "notebooks/asymmetric_noise_sensitivity.ipynb",
+        "size_bytes": 488253
+      },
+      {
+        "modified_utc": "2026-11-18T21:51:14.636441+00:00",
+        "path": "notebooks/circuit_level_qec_stim.ipynb",
+        "size_bytes": 474978
+      },
+      {
+        "modified_utc": "2026-11-18T22:36:50.994275+00:00",
+        "path": "notebooks/decoder_complexity_analysis.ipynb",
+        "size_bytes": 535900
+      },
+      {
+        "modified_utc": "2026-11-18T22:31:46.770738+00:00",
+        "path": "notebooks/decoder_latency_backlog.ipynb",
+        "size_bytes": 363151
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:47.691755+00:00",
+        "path": "notebooks/gpu_detector_preprocessing.ipynb",
+        "size_bytes": 1616371
+      },
+      {
+        "modified_utc": "2026-11-18T21:05:04.973142+00:00",
+        "path": "notebooks/quantum_noise_preparation.ipynb",
+        "size_bytes": 519424
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:18.048197+00:00",
+        "path": "notebooks/repetition_code.ipynb",
+        "size_bytes": 614739
+      },
+      {
+        "modified_utc": "2026-11-18T21:58:04.391422+00:00",
+        "path": "notebooks/surface_code_memory.ipynb",
+        "size_bytes": 1130662
+      },
+      {
+        "modified_utc": "2026-11-18T22:17:46.469764+00:00",
+        "path": "notebooks/surface_code_threshold_analysis.ipynb",
+        "size_bytes": 188369
+      }
+    ],
+    "result_count": 71,
+    "results": [
+      {
+        "modified_utc": "2026-11-18T21:05:45.496018+00:00",
+        "path": "results/01_qiskit_foundations.html",
+        "size_bytes": 882994
+      },
+      {
+        "modified_utc": "2026-11-18T22:52:06.611896+00:00",
+        "path": "results/asymmetric_noise_baseline.csv",
+        "size_bytes": 577
+      },
+      {
+        "modified_utc": "2026-11-18T22:52:06.610892+00:00",
+        "path": "results/asymmetric_noise_distance_scaling.csv",
+        "size_bytes": 3155
+      },
+      {
+        "modified_utc": "2026-11-18T22:52:06.610892+00:00",
+        "path": "results/asymmetric_noise_local_sensitivity.csv",
+        "size_bytes": 402
+      },
+      {
+        "modified_utc": "2026-11-18T22:52:06.610384+00:00",
+        "path": "results/asymmetric_noise_sensitivity.csv",
+        "size_bytes": 9024
+      },
+      {
+        "modified_utc": "2026-11-18T22:52:07.290928+00:00",
+        "path": "results/asymmetric_noise_sensitivity.html",
+        "size_bytes": 826762
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:18.854821+00:00",
+        "path": "results/bell_depolarising_noise.csv",
+        "size_bytes": 221
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:19.897475+00:00",
+        "path": "results/bell_state_noise_sweep.csv",
+        "size_bytes": 1522
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:18.353936+00:00",
+        "path": "results/bell_state_results.csv",
+        "size_bytes": 115
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:38.687224+00:00",
+        "path": "results/circuit_level_qec_stim.html",
+        "size_bytes": 815937
+      },
+      {
+        "modified_utc": "2026-11-18T23:44:27.119433+00:00",
+        "path": "results/cupy_configuration.txt",
+        "size_bytes": 2872
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:23.388909+00:00",
+        "path": "results/decoder_batch_size_scaling.csv",
+        "size_bytes": 448
+      },
+      {
+        "modified_utc": "2026-11-18T22:32:01.248791+00:00",
+        "path": "results/decoder_batch_timing.csv",
+        "size_bytes": 722
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:24.064364+00:00",
+        "path": "results/decoder_complexity_analysis.html",
+        "size_bytes": 901317
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:23.388909+00:00",
+        "path": "results/decoder_complexity_correlations.csv",
+        "size_bytes": 966
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:23.387909+00:00",
+        "path": "results/decoder_complexity_individual_latency.csv",
+        "size_bytes": 716740
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:23.369588+00:00",
+        "path": "results/decoder_complexity_summary.csv",
+        "size_bytes": 2992
+      },
+      {
+        "modified_utc": "2026-11-18T22:32:01.252803+00:00",
+        "path": "results/decoder_event_latency_summary.csv",
+        "size_bytes": 4086
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:23.388909+00:00",
+        "path": "results/decoder_failure_complexity.csv",
+        "size_bytes": 1140
+      },
+      {
+        "modified_utc": "2026-11-18T22:32:01.859652+00:00",
+        "path": "results/decoder_latency_backlog.html",
+        "size_bytes": 674538
+      },
+      {
+        "modified_utc": "2026-11-18T22:37:23.390297+00:00",
+        "path": "results/decoder_latency_model_coefficients.csv",
+        "size_bytes": 173
+      },
+      {
+        "modified_utc": "2026-11-18T22:32:01.255310+00:00",
+        "path": "results/decoder_latency_summary.csv",
+        "size_bytes": 698
+      },
+      {
+        "modified_utc": "2026-11-18T22:32:01.253805+00:00",
+        "path": "results/decoder_minimum_workers.csv",
+        "size_bytes": 450
+      },
+      {
+        "modified_utc": "2026-11-18T22:32:01.255310+00:00",
+        "path": "results/decoder_queue_sweep.csv",
+        "size_bytes": 7414
+      },
+      {
+        "modified_utc": "2026-11-18T22:32:01.252803+00:00",
+        "path": "results/decoder_single_shot_latency.csv",
+        "size_bytes": 135050
+      },
+      {
+        "modified_utc": "2026-11-18T22:32:01.253805+00:00",
+        "path": "results/decoder_utilisation.csv",
+        "size_bytes": 2553
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:18.014512+00:00",
+        "path": "results/finite_shot_sampling.csv",
+        "size_bytes": 434
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:44.196382+00:00",
+        "path": "results/gpu_detector_preprocessing.csv",
+        "size_bytes": 6162
+      },
+      {
+        "modified_utc": "2026-11-18T23:44:25.409696+00:00",
+        "path": "results/gpu_environment.csv",
+        "size_bytes": 212
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:46.833187+00:00",
+        "path": "results/gpu_hybrid_filtering.csv",
+        "size_bytes": 6885
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:46.768847+00:00",
+        "path": "results/gpu_hybrid_filtering_pilot.csv",
+        "size_bytes": 396
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:47.099224+00:00",
+        "path": "results/gpu_hybrid_filtering_summary.csv",
+        "size_bytes": 267
+      },
+      {
+        "modified_utc": "2026-11-19T04:05:26.473421+00:00",
+        "path": "results/gpu_notebook_environment.csv",
+        "size_bytes": 354
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:46.274953+00:00",
+        "path": "results/gpu_packed_detector_preprocessing.csv",
+        "size_bytes": 6693
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:46.717197+00:00",
+        "path": "results/gpu_packed_preprocessing_summary.csv",
+        "size_bytes": 192
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:46.242969+00:00",
+        "path": "results/gpu_packed_smoke_benchmark.csv",
+        "size_bytes": 541
+      },
+      {
+        "modified_utc": "2026-11-19T04:20:44.209403+00:00",
+        "path": "results/gpu_preprocessing_crossover.csv",
+        "size_bytes": 342
+      },
+      {
+        "modified_utc": "2026-11-19T04:05:27.504392+00:00",
+        "path": "results/gpu_preprocessing_smoke_benchmark.csv",
+        "size_bytes": 508
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:17.684094+00:00",
+        "path": "results/monte_carlo_convergence_results.csv",
+        "size_bytes": 15658
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:17.685098+00:00",
+        "path": "results/monte_carlo_convergence_summary.csv",
+        "size_bytes": 907
+      },
+      {
+        "modified_utc": "2026-11-18T23:26:58.273031+00:00",
+        "path": "results/project_audit.json",
+        "size_bytes": 28696
+      },
+      {
+        "modified_utc": "2026-11-18T23:26:58.274534+00:00",
+        "path": "results/project_audit.txt",
+        "size_bytes": 4946
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:37.942590+00:00",
+        "path": "results/pymatching_latency_summary.csv",
+        "size_bytes": 249
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:37.942590+00:00",
+        "path": "results/pymatching_single_shot_latencies.csv",
+        "size_bytes": 38666
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:20.724402+00:00",
+        "path": "results/Qauntum_Noise_prep.html",
+        "size_bytes": 881271
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:17.685098+00:00",
+        "path": "results/rare_event_sampling_requirements.csv",
+        "size_bytes": 573
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:05.420153+00:00",
+        "path": "results/repetition_code.html",
+        "size_bytes": 1014747
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:14.597980+00:00",
+        "path": "results/repetition_code_correction.csv",
+        "size_bytes": 279
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:33.188282+00:00",
+        "path": "results/repetition_code_d3_r3.dem",
+        "size_bytes": 1174
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:33.152342+00:00",
+        "path": "results/repetition_code_d3_r3.stim",
+        "size_bytes": 728
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:15.814563+00:00",
+        "path": "results/repetition_code_error_weight_summary.csv",
+        "size_bytes": 105
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:16.592077+00:00",
+        "path": "results/repetition_code_logical_error_sweep.csv",
+        "size_bytes": 2998
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:15.814563+00:00",
+        "path": "results/repetition_code_multiple_errors.csv",
+        "size_bytes": 669
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:12.185268+00:00",
+        "path": "results/repetition_code_single_errors.csv",
+        "size_bytes": 248
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:15.815568+00:00",
+        "path": "results/repetition_code_syndrome_ambiguity.csv",
+        "size_bytes": 255
+      },
+      {
+        "modified_utc": "2026-11-18T23:25:13.573982+00:00",
+        "path": "results/repetition_code_syndromes.csv",
+        "size_bytes": 206
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:16.354329+00:00",
+        "path": "results/setup_test.txt",
+        "size_bytes": 33
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:33.380841+00:00",
+        "path": "results/stim_pymatching_repetition_summary.csv",
+        "size_bytes": 501
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:37.939604+00:00",
+        "path": "results/stim_repetition_distance_comparison.csv",
+        "size_bytes": 777
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:37.940118+00:00",
+        "path": "results/stim_repetition_graph_sizes.csv",
+        "size_bytes": 104
+      },
+      {
+        "modified_utc": "2026-11-18T22:22:37.938091+00:00",
+        "path": "results/stim_repetition_scaling_results.csv",
+        "size_bytes": 5910
+      },
+      {
+        "modified_utc": "2026-11-18T22:21:08.775394+00:00",
+        "path": "results/surface_code_basis_summary.csv",
+        "size_bytes": 810
+      },
+      {
+        "modified_utc": "2026-11-18T22:21:08.775394+00:00",
+        "path": "results/surface_code_circuit_properties.csv",
+        "size_bytes": 108
+      },
+      {
+        "modified_utc": "2026-11-18T22:21:08.777434+00:00",
+        "path": "results/surface_code_distance_scaling.csv",
+        "size_bytes": 1753
+      },
+      {
+        "modified_utc": "2026-11-18T22:21:09.335431+00:00",
+        "path": "results/surface_code_memory.html",
+        "size_bytes": 1070657
+      },
+      {
+        "modified_utc": "2026-11-18T22:21:08.776910+00:00",
+        "path": "results/surface_code_outcome_event_summary.csv",
+        "size_bytes": 250
+      },
+      {
+        "modified_utc": "2026-11-18T22:21:06.184304+00:00",
+        "path": "results/surface_code_rotated_memory_x_d3_r3.stim",
+        "size_bytes": 2654
+      },
+      {
+        "modified_utc": "2026-11-18T22:21:06.184304+00:00",
+        "path": "results/surface_code_rotated_memory_z_d3_r3.stim",
+        "size_bytes": 2652
+      },
+      {
+        "modified_utc": "2026-11-18T22:19:18.800217+00:00",
+        "path": "results/surface_code_threshold_analysis.html",
+        "size_bytes": 430653
+      },
+      {
+        "modified_utc": "2026-11-18T22:04:19.726889+00:00",
+        "path": "results/surface_code_threshold_sinter.csv",
+        "size_bytes": 132078
+      },
+      {
+        "modified_utc": "2026-11-18T22:04:19.767028+00:00",
+        "path": "results/surface_code_threshold_summary.csv",
+        "size_bytes": 15301
+      }
+    ],
+    "source_count": 8,
+    "source_files": [
+      {
+        "modified_utc": "2026-11-18T23:50:11.903822+00:00",
+        "path": "src/quantum_qec/__init__.py",
+        "size_bytes": 3094
+      },
+      {
+        "modified_utc": "2026-11-18T23:13:08.530727+00:00",
+        "path": "src/quantum_qec/benchmarking.py",
+        "size_bytes": 8824
+      },
+      {
+        "modified_utc": "2026-11-18T23:06:00.976740+00:00",
+        "path": "src/quantum_qec/circuits.py",
+        "size_bytes": 9253
+      },
+      {
+        "modified_utc": "2026-11-18T23:06:04.794782+00:00",
+        "path": "src/quantum_qec/decoding.py",
+        "size_bytes": 3874
+      },
+      {
+        "modified_utc": "2026-11-18T23:51:53.182896+00:00",
+        "path": "src/quantum_qec/gpu.py",
+        "size_bytes": 16189
+      },
+      {
+        "modified_utc": "2026-11-18T23:10:00.207893+00:00",
+        "path": "src/quantum_qec/queueing.py",
+        "size_bytes": 9190
+      },
+      {
+        "modified_utc": "2026-11-18T23:06:04.794782+00:00",
+        "path": "src/quantum_qec/simulation.py",
+        "size_bytes": 7023
+      },
+      {
+        "modified_utc": "2026-11-18T23:06:04.794782+00:00",
+        "path": "src/quantum_qec/statistics.py",
+        "size_bytes": 4274
+      }
+    ],
+    "test_count": 7,
+    "test_files": [
+      {
+        "modified_utc": "2026-11-18T23:10:00.207893+00:00",
+        "path": "tests/test_benchmarking.py",
+        "size_bytes": 3354
+      },
+      {
+        "modified_utc": "2026-11-18T23:06:00.976740+00:00",
+        "path": "tests/test_circuits.py",
+        "size_bytes": 5179
+      },
+      {
+        "modified_utc": "2026-11-18T23:06:04.795781+00:00",
+        "path": "tests/test_decoding.py",
+        "size_bytes": 3551
+      },
+      {
+        "modified_utc": "2026-11-18T23:50:11.890386+00:00",
+        "path": "tests/test_gpu.py",
+        "size_bytes": 5036
+      },
+      {
+        "modified_utc": "2026-11-18T23:10:00.208895+00:00",
+        "path": "tests/test_queueing.py",
+        "size_bytes": 3179
+      },
+      {
+        "modified_utc": "2026-11-18T23:06:04.796780+00:00",
+        "path": "tests/test_simulation.py",
+        "size_bytes": 3256
+      },
+      {
+        "modified_utc": "2026-11-18T23:06:04.795781+00:00",
+        "path": "tests/test_statistics.py",
+        "size_bytes": 2390
+      }
+    ]
+  },
+  "notebooks": {
+    "inspection": [
+      {
+        "absolute_path_cells": [
+          1
+        ],
+        "code_cells": 32,
+        "completely_executed": true,
+        "executed_code_cells": 32,
+        "path": "notebooks/asymmetric_noise_sensitivity.ipynb",
+        "readable": true,
+        "saved_errors": [],
+        "total_cells": 34
+      },
+      {
+        "absolute_path_cells": [
+          1,
+          37
+        ],
+        "code_cells": 57,
+        "completely_executed": true,
+        "executed_code_cells": 57,
+        "path": "notebooks/circuit_level_qec_stim.ipynb",
+        "readable": true,
+        "saved_errors": [],
+        "total_cells": 63
+      },
+      {
+        "absolute_path_cells": [
+          1
+        ],
+        "code_cells": 24,
+        "completely_executed": true,
+        "executed_code_cells": 24,
+        "path": "notebooks/decoder_complexity_analysis.ipynb",
+        "readable": true,
+        "saved_errors": [],
+        "total_cells": 26
+      },
+      {
+        "absolute_path_cells": [
+          1
+        ],
+        "code_cells": 42,
+        "completely_executed": true,
+        "executed_code_cells": 42,
+        "path": "notebooks/decoder_latency_backlog.ipynb",
+        "readable": true,
+        "saved_errors": [],
+        "total_cells": 45
+      },
+      {
+        "absolute_path_cells": [],
+        "code_cells": 121,
+        "completely_executed": true,
+        "executed_code_cells": 121,
+        "path": "notebooks/gpu_detector_preprocessing.ipynb",
+        "readable": true,
+        "saved_errors": [],
+        "total_cells": 137
+      },
+      {
+        "absolute_path_cells": [
+          0
+        ],
+        "code_cells": 62,
+        "completely_executed": true,
+        "executed_code_cells": 62,
+        "path": "notebooks/quantum_noise_preparation.ipynb",
+        "readable": true,
+        "saved_errors": [],
+        "total_cells": 73
+      },
+      {
+        "absolute_path_cells": [
+          1
+        ],
+        "code_cells": 110,
+        "completely_executed": true,
+        "executed_code_cells": 110,
+        "path": "notebooks/repetition_code.ipynb",
+        "readable": true,
+        "saved_errors": [],
+        "total_cells": 124
+      },
+      {
+        "absolute_path_cells": [
+          1
+        ],
+        "code_cells": 35,
+        "completely_executed": true,
+        "executed_code_cells": 35,
+        "path": "notebooks/surface_code_memory.ipynb",
+        "readable": true,
+        "saved_errors": [],
+        "total_cells": 37
+      },
+      {
+        "absolute_path_cells": [
+          0
+        ],
+        "code_cells": 11,
+        "completely_executed": true,
+        "executed_code_cells": 11,
+        "path": "notebooks/surface_code_threshold_analysis.ipynb",
+        "readable": true,
+        "saved_errors": [],
+        "total_cells": 12
+      }
+    ],
+    "subject_matches": {
+      "asymmetric_noise": [
+        "notebooks/asymmetric_noise_sensitivity.ipynb"
+      ],
+      "circuit_level_qec": [
+        "notebooks/circuit_level_qec_stim.ipynb"
+      ],
+      "decoder_complexity": [
+        "notebooks/decoder_complexity_analysis.ipynb"
+      ],
+      "decoder_latency": [
+        "notebooks/decoder_latency_backlog.ipynb"
+      ],
+      "gpu_detector_preprocessing": [
+        "notebooks/gpu_detector_preprocessing.ipynb"
+      ],
+      "quantum_noise": [
+        "notebooks/quantum_noise_preparation.ipynb"
+      ],
+      "repetition_code": [
+        "notebooks/repetition_code.ipynb"
+      ],
+      "surface_code": [
+        "notebooks/surface_code_memory.ipynb",
+        "notebooks/surface_code_threshold_analysis.ipynb"
+      ],
+      "threshold": [
+        "notebooks/surface_code_threshold_analysis.ipynb"
+      ]
+    }
+  },
+  "project_root": "C:\\Users\\Karthi\\Qauntum",
+  "required_files": {
+    ".gitignore": true,
+    "README.md": true,
+    "pyproject.toml": true,
+    "requirements-lock.txt": true,
+    "src/quantum_qec/__init__.py": true,
+    "src/quantum_qec/benchmarking.py": true,
+    "src/quantum_qec/circuits.py": true,
+    "src/quantum_qec/decoding.py": true,
+    "src/quantum_qec/gpu.py": true,
+    "src/quantum_qec/queueing.py": true,
+    "src/quantum_qec/simulation.py": true,
+    "src/quantum_qec/statistics.py": true
+  },
+  "tests": {
+    "passed": true,
+    "return_code": 0,
+    "stderr": "",
+    "stdout": "============================= test session starts =============================\nplatform win32 -- Python 3.14.6, pytest-9.2.0, pluggy-1.7.0\nrootdir: C:\\Users\\Karthi\\Qauntum\nconfigfile: pyproject.toml\ntestpaths: tests\nplugins: anyio-4.16.0, platformdirs-4.14.7\ncollected 63 items\n\ntests\\test_benchmarking.py ....                                          [  6%]\ntests\\test_circuits.py ..................                                [ 34%]\ntests\\test_decoding.py ......                                            [ 44%]\ntests\\test_gpu.py ..............                                         [ 66%]\ntests\\test_queueing.py .......                                           [ 77%]\ntests\\test_simulation.py .....                                           [ 85%]\ntests\\test_statistics.py .........                                       [100%]\n\n============================= 63 passed in 1.23s =============================="
+  }
+}

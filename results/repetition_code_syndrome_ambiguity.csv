@@ -1,0 +1,9 @@
+error_qubits,number_of_errors,syndrome,corrected_data,correction_successful
+none,0,00,000,True
+"q0, q1, q2",3,00,111,False
+q0,1,01,000,True
+"q1, q2",2,01,111,False
+q2,1,10,000,True
+"q0, q1",2,10,111,False
+q1,1,11,000,True
+"q0, q2",2,11,111,False

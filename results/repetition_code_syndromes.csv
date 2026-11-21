@@ -1,0 +1,9 @@
+logical_value,error_qubit,measured_syndrome,identified_error_qubit,shots
+0,none,00,none,4096
+0,0,01,0,4096
+0,1,11,1,4096
+0,2,10,2,4096
+1,none,00,none,4096
+1,0,01,0,4096
+1,1,11,1,4096
+1,2,10,2,4096

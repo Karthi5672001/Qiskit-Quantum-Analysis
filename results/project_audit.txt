@@ -1,0 +1,147 @@
+QUANTUM QEC PROJECT AUDIT
+========================================================================
+Generated: 2026-11-19T04:28:54.785151+00:00
+Project: C:\Users\Karthi\Qauntum
+
+ENVIRONMENT
+------------------------------------------------------------------------
+Python: 3.14.6
+Executable: C:\Users\Karthi\.qiskit\Scripts\python.exe
+Operating system: Windows-11-10.0.26200-SP0
+Machine: AMD64
+Logical CPUs: 16
+
+PACKAGE VERSIONS
+------------------------------------------------------------------------
+numpy: 2.5.5
+pandas: 3.1.1
+matplotlib: 3.11.2
+qiskit: 2.6.2
+qiskit-aer: 0.18.4
+stim: 1.16.0
+sinter: 1.16.0
+pymatching: 2.4.0
+cupy-cuda13x: 14.2.0
+pytest: 9.2.0
+jupyterlab: 4.6.6
+
+TEST SUITE
+------------------------------------------------------------------------
+Passed: True
+Return code: 0
+============================= test session starts =============================
+platform win32 -- Python 3.14.6, pytest-9.2.0, pluggy-1.7.0
+rootdir: C:\Users\Karthi\Qauntum
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0, platformdirs-4.14.7
+collected 63 items
+
+tests\test_benchmarking.py ....                                          [  6%]
+tests\test_circuits.py ..................                                [ 34%]
+tests\test_decoding.py ......                                            [ 44%]
+tests\test_gpu.py ..............                                         [ 66%]
+tests\test_queueing.py .......                                           [ 77%]
+tests\test_simulation.py .....                                           [ 85%]
+tests\test_statistics.py .........                                       [100%]
+
+============================= 63 passed in 1.23s ==============================
+
+INVENTORY
+------------------------------------------------------------------------
+Notebooks: 9
+Results: 71
+Figures: 52
+Source modules: 8
+Test files: 7
+Empty files: 0
+
+REQUIRED FILES
+------------------------------------------------------------------------
+[OK] pyproject.toml
+[OK] README.md
+[OK] .gitignore
+[OK] requirements-lock.txt
+[OK] src/quantum_qec/__init__.py
+[OK] src/quantum_qec/circuits.py
+[OK] src/quantum_qec/decoding.py
+[OK] src/quantum_qec/simulation.py
+[OK] src/quantum_qec/statistics.py
+[OK] src/quantum_qec/benchmarking.py
+[OK] src/quantum_qec/queueing.py
+[OK] src/quantum_qec/gpu.py
+
+NOTEBOOK SUBJECTS
+------------------------------------------------------------------------
+[OK] quantum_noise: notebooks/quantum_noise_preparation.ipynb
+[OK] repetition_code: notebooks/repetition_code.ipynb
+[OK] circuit_level_qec: notebooks/circuit_level_qec_stim.ipynb
+[OK] surface_code: notebooks/surface_code_memory.ipynb, notebooks/surface_code_threshold_analysis.ipynb
+[OK] threshold: notebooks/surface_code_threshold_analysis.ipynb
+[OK] decoder_latency: notebooks/decoder_latency_backlog.ipynb
+[OK] decoder_complexity: notebooks/decoder_complexity_analysis.ipynb
+[OK] asymmetric_noise: notebooks/asymmetric_noise_sensitivity.ipynb
+[OK] gpu_detector_preprocessing: notebooks/gpu_detector_preprocessing.ipynb
+
+NOTEBOOK EXECUTION
+------------------------------------------------------------------------
+[COMPLETE] notebooks/asymmetric_noise_sensitivity.ipynb | code cells 32/32 | saved errors 0 | absolute-path cells 1
+[COMPLETE] notebooks/circuit_level_qec_stim.ipynb | code cells 57/57 | saved errors 0 | absolute-path cells 2
+[COMPLETE] notebooks/decoder_complexity_analysis.ipynb | code cells 24/24 | saved errors 0 | absolute-path cells 1
+[COMPLETE] notebooks/decoder_latency_backlog.ipynb | code cells 42/42 | saved errors 0 | absolute-path cells 1
+[COMPLETE] notebooks/gpu_detector_preprocessing.ipynb | code cells 121/121 | saved errors 0 | absolute-path cells 0
+[COMPLETE] notebooks/quantum_noise_preparation.ipynb | code cells 62/62 | saved errors 0 | absolute-path cells 1
+[COMPLETE] notebooks/repetition_code.ipynb | code cells 110/110 | saved errors 0 | absolute-path cells 1
+[COMPLETE] notebooks/surface_code_memory.ipynb | code cells 35/35 | saved errors 0 | absolute-path cells 1
+[COMPLETE] notebooks/surface_code_threshold_analysis.ipynb | code cells 11/11 | saved errors 0 | absolute-path cells 1
+
+HEADLINE RESULTS
+------------------------------------------------------------------------
+[OK] threshold
+    results/surface_code_threshold_summary.csv
+    results/surface_code_threshold_sinter.csv
+[OK] latency
+    results/decoder_latency_summary.csv
+    results/decoder_single_shot_latency.csv
+[OK] queueing
+    results/decoder_queue_sweep.csv
+[OK] complexity
+    results/decoder_complexity_summary.csv
+[OK] asymmetric_noise
+    results/asymmetric_noise_sensitivity.csv
+[OK] gpu_dense_preprocessing
+    results/gpu_detector_preprocessing.csv
+    results/gpu_preprocessing_crossover.csv
+[OK] gpu_packed_preprocessing
+    results/gpu_packed_detector_preprocessing.csv
+    results/gpu_packed_preprocessing_summary.csv
+[OK] gpu_hybrid_filtering
+    results/gpu_hybrid_filtering.csv
+    results/gpu_hybrid_filtering_summary.csv
+
+HEADLINE FIGURES
+------------------------------------------------------------------------
+[OK] threshold
+    figures/surface_code_threshold_sinter.png
+[OK] latency
+    figures/decoder_latency_distribution.png
+[OK] backlog
+    figures/decoder_backlog_comparison.png
+[OK] complexity
+    figures/decoder_batch_cost_by_distance.png
+    figures/decoder_batch_size_efficiency.png
+[OK] asymmetric_noise
+    figures/asymmetric_noise_sensitivity_ranking.png
+[OK] gpu_dense_preprocessing
+    figures/gpu_event_count_crossover.png
+    figures/gpu_speedup_by_distance.png
+    figures/gpu_transfer_breakdown.png
+[OK] gpu_packed_preprocessing
+    figures/gpu_packed_transfer_comparison.png
+[OK] gpu_hybrid_filtering
+    figures/gpu_hybrid_filtering_pilot.png
+    figures/gpu_hybrid_filtering_opportunity.png
+
+EMPTY FILES
+------------------------------------------------------------------------
+None

@@ -1,0 +1,2 @@
+code,distance,rounds,physical_error_probability,number_of_qubits,number_of_detectors,number_of_observables,shots,logical_failures,logical_failure_probability,sampling_time_seconds,decoding_time_seconds,sampling_throughput_shots_per_second,decoding_throughput_shots_per_second,decoder_microseconds_per_shot,mean_detection_events_per_shot
+repetition_code:memory,3,3,0.001,5,8,1,100000,5,5e-05,0.001405700109899044,0.0024667999241501093,71138928.77705039,40538350.524902485,0.024667999241501093,0.05528

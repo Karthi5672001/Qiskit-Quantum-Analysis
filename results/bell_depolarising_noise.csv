@@ -1,0 +1,3 @@
+simulation,shots,single_qubit_error_probability,two_qubit_error_probability,unexpected_outcomes,unexpected_outcome_rate,zz_correlation
+ideal,4096,0.0,0.0,0,0.0,1.0
+depolarising_noise,4096,0.01,0.03,64,0.015625,0.96875

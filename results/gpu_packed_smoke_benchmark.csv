@@ -1,0 +1,2 @@
+shots,detectors,dense_bytes,packed_bytes,compression_ratio,cpu_dense_count_ms,cpu_pack_ms,dense_h2d_ms,packed_h2d_ms,dense_gpu_kernel_ms,packed_gpu_kernel_ms,packed_d2h_ms,dense_end_to_end_ms,packed_end_to_end_ms,packed_transfer_speedup,packed_vs_dense_speedup,packed_vs_cpu_speedup
+100000,1000,100000000,12500000,8.0,41.32975003449246,5.515549972187728,4.517749999649823,0.6791499326936901,0.10325002949684858,0.12479996075853705,0.06429996574297547,5.5326499859802425,6.245899945497513,6.652065740080721,0.8858050936228283,6.617100881400746

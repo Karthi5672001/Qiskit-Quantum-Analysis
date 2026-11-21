@@ -1,0 +1,3 @@
+circuit,shots,zz_correlation,unexpected_outcome_rate
+Hadamard only,4096,-0.01904296875,
+Bell state,4096,1.0,0.0

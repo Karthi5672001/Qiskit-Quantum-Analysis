@@ -1,0 +1,2 @@
+gpu,compute_capability,shots,detectors,event_probability,input_mib,cpu_ms,host_to_device_ms,gpu_kernel_ms,device_to_host_ms,gpu_end_to_end_ms,resident_speedup,end_to_end_speedup,cpu_shots_per_second,gpu_kernel_shots_per_second,gpu_end_to_end_shots_per_second
+NVIDIA GeForce RTX 5090,12.0,100000,1000,0.01,95.367431640625,39.57345004891977,4.46560001000762,0.0847000046633184,0.06400002166628838,4.6605500392615795,467.2189831184048,8.4911544164409,2526946.725048798,1180637479.2716827,21456694.84450897

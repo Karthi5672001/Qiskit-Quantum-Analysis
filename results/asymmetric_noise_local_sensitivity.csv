@@ -1,0 +1,5 @@
+parameter,parameter_label,logical_rate_at_half_baseline,logical_rate_at_double_baseline,logarithmic_sensitivity
+clifford_depolarisation,Clifford-gate depolarisation,1e-05,0.00019,2.1239637567217926
+measurement_flip,Measurement flip,1.5e-05,0.000115,1.4692997276679285
+data_depolarisation,Data depolarisation,1e-05,5.5e-05,1.2297158093186487
+reset_flip,Reset flip,4.5e-05,8e-05,0.41503749927884387

@@ -1,0 +1,4 @@
+metric,value,distance,shots
+Best packed versus dense speedup,1.203876246912369,9.0,100000.0
+Worst packed versus dense speedup,0.23666174260849385,3.0,500000.0
+Mean compression ratio,8.0,,

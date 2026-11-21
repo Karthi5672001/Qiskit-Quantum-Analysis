@@ -1,0 +1,2 @@
+python_version,operating_system,numpy_version,cupy_version,stim_version,pymatching_version,gpu_name,gpu_compute_capability,gpu_total_memory_gib,gpu_free_memory_gib_at_start,cuda_runtime_version,cuda_driver_version,seed
+3.14.6,Windows-11-10.0.26200-SP0,2.5.5,14.2.0,1.16.0,2.4.0,NVIDIA GeForce RTX 5090,12.0,31.816162109375,30.2646484375,13020,13050,42
