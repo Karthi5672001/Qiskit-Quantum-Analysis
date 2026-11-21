@@ -310,6 +310,119 @@ This demonstrates that an aggregate physical error rate can conceal which operat
 
 ![Asymmetric-noise sensitivity ranking](figures/asymmetric_noise_sensitivity_ranking.png)
 
+# Part II: GPU and heterogeneous processing
+
+## GPU-Accelerated Detector-Event Preprocessing
+ 
+The complete analysis, executable code, saved benchmark outputs, and interpretation are available in:
+ 
+**gpu_detector_preprocessing.ipynb**
+
+## Motivation
+
+The GPU study investigates whether detector-event preprocessing can benefit from an NVIDIA accelerator after accounting for data movement and pipeline overhead.
+
+The tested environment used:
+
+- NVIDIA GeForce RTX 5090;
+- approximately 32 GB of GPU memory;
+- CuPy 14.2;
+- CUDA 13.2 runtime linked to CuPy;
+- compute capability 12.0.
+
+This is a preprocessing and systems study. PyMatching remains a CPU decoder, so the work is **not** a GPU implementation of surface-code minimum-weight perfect matching.
+
+## GPU preprocessing module
+
+The reusable GPU module provides:
+
+- CUDA availability checks;
+- GPU device information;
+- CPU and GPU event counting;
+- event-density calculation;
+- zero-event masking;
+- dense and bit-packed detector processing;
+- synchronised CUDA timing;
+- host-to-device timing;
+- resident-kernel timing;
+- device-to-host timing;
+- end-to-end timing;
+- conservative GPU batch-size estimation.
+
+## Correctness verification
+
+CPU and GPU implementations were verified to agree for:
+
+- detector-event counts;
+- event density;
+- zero-event masks;
+- bit-packed detector representations.
+
+CuPy 14.2 does not support `packbits(..., axis=1)`. The project therefore implements explicit row-wise GPU bit packing using:
+
+- zero padding to a whole number of bytes;
+- groups of eight detector values;
+- little-endian bit weights;
+- GPU multiplication and reduction.
+
+The output was verified against NumPy’s row-wise `packbits` operation.
+
+## Synthetic preprocessing baseline
+
+A synthetic dense Boolean detector matrix containing:
+
+\[
+100{,}000\times1{,}000
+\]
+
+entries, approximately 95.37 MiB, produced the following representative result:
+
+| Component | Median time |
+|---|---:|
+| NumPy CPU event count | 39.40 ms |
+| Host-to-device transfer | 4.71 ms |
+| Resident GPU kernel | 0.084 ms |
+| Device-to-host transfer | 0.065 ms |
+| Complete GPU pipeline | 4.49 ms |
+| Resident-data speedup | \(467.7\times\) |
+| End-to-end speedup | \(8.77\times\) |
+
+The resident kernel was extremely fast, but host-to-device transfer dominated the complete GPU path.
+
+This means that further kernel optimisation alone would have limited value unless data transfer is also reduced, overlapped, or avoided.
+
+## Real Stim detector workloads
+
+Real detector matrices were generated for rotated surface-code circuits at:
+
+\[
+d\in\{3,5,7,9,11\},
+\]
+
+with batch sizes:
+
+\[
+N\in\{1{,}000,\ 10{,}000,\ 100{,}000,\ 500{,}000\}.
+\]
+
+The 20-configuration sweep measured:
+
+- detector width;
+- matrix size;
+- mean event count;
+- zero-event fraction;
+- CPU event-counting time;
+- host-to-device transfer;
+- resident GPU kernel time;
+- device-to-host transfer;
+- complete GPU time;
+- resident speedup;
+- transfer-inclusive speedup;
+- CPU-GPU crossover by distance and batch size.
+
+The resident measurements describe a system in which detector data is already on the accelerator. The end-to-end measurements describe the current Stim workflow, where detector samples are created in CPU memory.
+
+
 
 ---
 
