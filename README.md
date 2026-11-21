@@ -19,7 +19,7 @@ This project investigates quantum error correction as a quantum-classical system
 
 ### Quantum circuit and noise preparation
 
-`quantum_noise_preparation.ipynb`
+[Quantum Noise Preparation](quantum_noise_preparation.ipynb)
 
 The introductory work establishes the concepts required for later error-correction experiments:
 
@@ -34,7 +34,7 @@ These experiments provide ideal baselines before redundancy and error correction
 
 ### Three-qubit repetition code
 
-`repetition_code.ipynb`
+[Three-qubit repetition code](repetition_code.ipynb)
 
 A three-qubit bit-flip repetition code was implemented from first principles:
 
@@ -69,7 +69,7 @@ The experiment also demonstrates that a distance-three repetition code corrects 
 
 ### Circuit-level quantum error correction
 
-`circuit_level_qec_stim_fixed.ipynb`
+[Circuit-level quantum error correction](circuit_level_qec_stim_fixed.ipynb)
 
 The project then moves from idealised data errors to circuit-level simulations using Stim.
 
@@ -103,7 +103,7 @@ Logical-failure estimate
 
 ### Decoder backlog modelling
 
-`decoder_latency_backlog.ipynb`
+[Decoder backlog modelling](decoder_latency_backlog.ipynb)
 
 The classical decoder was modelled as a queue in which syndrome jobs arrive at a fixed interval and require variable service times.
 
@@ -134,7 +134,7 @@ The queue model evaluates:
 
 ## Rotated surface-code memory experiments
 
-`surface_code_memory.ipynb`
+[Rotated surface-code memory experiments](surface_code_memory.ipynb)
 
 Logical $X$- and $Z$-memory circuits were studied across multiple code distances, syndrome-round counts, and circuit-level error probabilities.
 
@@ -151,7 +151,7 @@ Increasing code distance raises the minimum weight of an undetectable logical op
 
 ## Preliminary surface-code threshold study
 
-`surface_code_threshold_analysis.ipynb`
+[Preliminary surface-code threshold study](surface_code_threshold_analysis.ipynb)
 
 An adaptive Sinter experiment was performed for rotated surface-code logical-memory circuits at:
 
@@ -190,7 +190,8 @@ This is a **preliminary finite-distance crossing estimate**, not a precision asy
 
 ## CPU decoder performance
 
-`decoder_latency_backlog.ipynb` `decoder_complexity_analysis.ipynb`
+[CPU decoder performance part 1](decoder_latency_backlog.ipynb)
+[CPU decoder performance part 2](decoder_complexity_analysis.ipynb)
 
 PyMatching was benchmarked in both batch and individual-call modes.
 
@@ -220,7 +221,7 @@ The results distinguish between:
 
 ## Queue and backlog modelling
 
-`decoder_latency_backlog.ipynb`
+[Queue and backlog modelling](decoder_latency_backlog.ipynb)
 
 The decoder was modelled as a multi-worker queue receiving syndrome jobs at a fixed interval.
 
@@ -263,7 +264,7 @@ The model evaluates:
 
 ## Decoder-complexity analysis
 
-`decoder_complexity_analysis.ipynb`
+[Decoder-complexity analysis](decoder_complexity_analysis.ipynb)
 
 Decoder cost was analysed against:
 
@@ -285,7 +286,7 @@ Detector-event count alone did not fully determine latency. Other influences inc
 
 ## Asymmetric-noise sensitivity
 
-`asymmetric_noise_sensitivity.ipynb`
+[Asymmetric-noise sensitivity](asymmetric_noise_sensitivity.ipynb)
 
 The circuit-level noise model was separated into:
 
@@ -316,7 +317,7 @@ This demonstrates that an aggregate physical error rate can conceal which operat
  
 The complete analysis, executable code, saved benchmark outputs, and interpretation are available in:
  
-**gpu_detector_preprocessing.ipynb**
+[GPU and heterogeneous processing](gpu_detector_preprocessing.ipynb)
 
 ## Motivation
 
