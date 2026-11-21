@@ -423,8 +423,351 @@ The 20-configuration sweep measured:
 
 The resident measurements describe a system in which detector data is already on the accelerator. The end-to-end measurements describe the current Stim workflow, where detector samples are created in CPU memory.
 
+## CPU–GPU Crossover Analysis
 
+For each surface-code distance, the first tested batch size satisfying:
 
+$$
+S_{\mathrm{end\text{-}to\text{-}end}} > 1
+$$
+
+was recorded as the measured CPU–GPU crossover.
+
+This is the first crossover observed within the tested batch-size grid, rather than an exact analytical crossover point. More closely spaced batch sizes would be needed to locate the transition precisely.
+
+The crossover depends on the total detector-matrix size:
+
+$$
+B_{\mathrm{dense}} = N_{\mathrm{shots}} N_{\mathrm{detectors}} \ \mathrm{bytes},
+$$
+
+because increasing either batch size or code distance exposes more parallel work to the GPU while also increasing the required data transfer.
+
+The following outputs record the dense-processing results:
+
+- `results/gpu_detector_preprocessing.csv`
+- `results/gpu_preprocessing_crossover.csv`
+- `figures/gpu_event_count_crossover.png`
+- `figures/gpu_speedup_by_distance.png`
+- `figures/gpu_transfer_breakdown.png`
+
+The crossover and timing-breakdown figures distinguish between:
+
+- CPU processing;
+- resident GPU computation;
+- host-to-device transfer;
+- device-to-host result transfer;
+- complete transfer-inclusive GPU processing.
+
+## Bit-Packed Detector Processing
+
+Dense NumPy Boolean arrays use approximately one byte for each detector value, although each detector contains only one bit of information.
+
+For $N_{\mathrm{shots}}$ samples and $N_{\mathrm{detectors}}$ detectors, the packed representation requires:
+
+$$
+B_{\mathrm{packed}}
+=
+N_{\mathrm{shots}}
+\left\lceil
+\frac{N_{\mathrm{detectors}}}{8}
+\right\rceil
+\ \mathrm{bytes}.
+$$
+
+The maximum compression ratio approaches:
+
+$$
+\frac{B_{\mathrm{dense}}}
+     {B_{\mathrm{packed}}}
+\approx 8,
+$$
+
+although row padding can reduce the achieved ratio when the detector count is not divisible by eight.
+
+The packed pipeline performs:
+
+1. CPU-side row-wise bit packing;
+2. transfer of packed bytes to GPU memory;
+3. GPU population counting;
+4. transfer of the per-sample event counts back to the CPU.
+
+The GPU counts active detector bits without reconstructing the original dense matrix. A 256-entry lookup table stores the number of active bits in every possible byte value:
+
+$$
+0 \leq b \leq 255.
+$$
+
+Packed bytes are used as lookup-table indices, and the resulting byte-level counts are reduced across each detector row.
+
+The complete packed-processing time includes:
+
+$$
+T_{\mathrm{packed,total}}
+=
+T_{\mathrm{CPU,pack}}
++
+T_{\mathrm{H2D,packed}}
++
+T_{\mathrm{GPU,popcount}}
++
+T_{\mathrm{D2H}}.
+$$
+
+The packed-versus-dense GPU speedup is:
+
+$$
+S_{\mathrm{packed/dense}}
+=
+\frac{T_{\mathrm{dense,GPU,total}}}
+     {T_{\mathrm{packed,GPU,total}}}.
+$$
+
+A reduction in transfer size does not automatically produce an equivalent reduction in total runtime. CPU packing and GPU population counting must also be included.
+
+The packed representation is more attractive in an architecture where an FPGA, digitiser, or readout processor produces packed detector records directly. In that case, the synchronous CPU packing stage would be removed.
+
+The packed benchmarks use the same 20 real Stim configurations as the dense sweep.
+
+The corresponding outputs are:
+
+- `results/gpu_packed_smoke_benchmark.csv`
+- `results/gpu_packed_detector_preprocessing.csv`
+- `results/gpu_packed_preprocessing_summary.csv`
+- `figures/gpu_packed_transfer_comparison.png`
+
+## GPU Zero-Event Filtering Before CPU Decoding
+
+At low physical error probabilities, many detector samples contain no detection events. These samples can be identified before CPU decoding.
+
+The tested heterogeneous pipeline is:
+
+```text
+Stim detector matrix in CPU memory
+        ↓
+GPU identifies nonzero-event rows
+        ↓
+Selection mask returned to CPU
+        ↓
+CPU selects retained rows
+        ↓
+PyMatching decodes retained rows
+        ↓
+Predictions reconstructed in original order
+```
+
+Before applying this optimisation, the notebook verifies that an all-zero detector row produces an all-zero logical prediction for the tested PyMatching decoder.
+
+The filtered pipeline is accepted only when:
+
+```python
+np.array_equal(
+    full_predictions,
+    filtered_predictions,
+)
+```
+
+is true.
+
+For a distance-three pilot with physical error probability:
+
+$$
+p = 0.001
+$$
+
+and $10{,}000$ samples:
+
+- $83.68\%$ of detector rows contained no events;
+- $1{,}632$ of $10{,}000$ rows were passed to PyMatching;
+- reconstructed predictions exactly matched full-batch PyMatching predictions.
+
+A zero-event row does not prove that the underlying physical process contained no logical fault. It means that the decoder receives an empty detector record and returns the corresponding prediction under the tested matching graph.
+
+Hybrid speedup is defined as:
+
+$$
+S_{\mathrm{hybrid}}
+=
+\frac{T_{\mathrm{full\,CPU\,decode}}}
+     {T_{\mathrm{hybrid,total}}},
+$$
+
+where:
+
+$$
+T_{\mathrm{hybrid,total}}
+=
+T_{\mathrm{GPU,filter}}
++
+T_{\mathrm{CPU,selection}}
++
+T_{\mathrm{filtered\,decode}}
++
+T_{\mathrm{reconstruction}}.
+$$
+
+The complete hybrid measurement includes:
+
+- transfer of the detector matrix to the GPU;
+- GPU identification of nonzero-event rows;
+- transfer of the selection mask to the CPU;
+- NumPy Boolean row selection;
+- PyMatching decoding of retained rows;
+- reconstruction of predictions in their original order.
+
+A high zero-event fraction represents an opportunity to reduce decoder work, but it does not guarantee an end-to-end speedup. Transfer, filtering, indexing, reconstruction, and smaller decoder batches can outweigh the saved PyMatching work.
+
+A focused hybrid sweep was performed over:
+
+$$
+p \in \{0.001, 0.003\}, \qquad d \in \{3, 7\},
+$$
+
+and:
+
+$$
+N \in \{10{,}000, 100{,}000\}.
+$$
+
+This produced eight configurations. Every configuration was checked for exact prediction agreement before its timing result was accepted.
+
+The corresponding outputs are:
+
+- `results/gpu_hybrid_filtering_pilot.csv`
+- `results/gpu_hybrid_filtering.csv`
+- `results/gpu_hybrid_filtering_summary.csv`
+- `figures/gpu_hybrid_filtering_pilot.png`
+- `figures/gpu_hybrid_filtering_opportunity.png`
+
+## Per-Patch Latency and System-Scale Throughput
+
+For an individual small surface-code patch, each syndrome-extraction round produces a relatively small detector record. Invoking a discrete GPU independently for every patch and every correction cycle is unlikely to be efficient because transfer, launch, synchronisation, and scheduling overhead can dominate the limited computational payload.
+
+The aggregate classical-processing challenge arises from continuous repetition and system-wide scale. Stabilizer measurements are generated every correction cycle across active data, ancilla, routing, and magic-state patches.
+
+The approximate raw syndrome-data rate is:
+
+$$
+R_{\mathrm{syndrome}}
+\approx
+N_{\mathrm{patches}}
+N_{\mathrm{checks/patch}}
+f_{\mathrm{cycle}}
+b_{\mathrm{check}},
+$$
+
+where:
+
+- $N_{\mathrm{patches}}$ is the number of active code patches;
+- $N_{\mathrm{checks/patch}}$ is the number of measured checks per patch;
+- $f_{\mathrm{cycle}}$ is the syndrome-extraction frequency;
+- $b_{\mathrm{check}}$ is the number of transported bits associated with each check.
+
+The actual transported bandwidth also depends on:
+
+- measurement multiplexing;
+- detector extraction close to the readout hardware;
+- dense, sparse, or bit-packed representation;
+- timestamps and framing;
+- compression;
+- buffering;
+- communication-protocol overhead.
+
+A real system must satisfy both throughput and latency requirements. Average decoder capacity must keep pace with the syndrome stream, while results required for feed-forward must become available before the corresponding logical operation consumes them.
+
+## Interpreting the Large-Batch Results
+
+The large-batch GPU benchmarks are most representative of:
+
+- offline Monte Carlo simulation;
+- simultaneous preprocessing across many independent code patches;
+- aggregation across several syndrome windows;
+- calibration and detector-workload analysis;
+- workloads already resident on an accelerator;
+- systems capable of streaming packed detector records efficiently.
+
+They should not be interpreted as evidence that a discrete GPU is optimal for the lowest-latency, single-patch real-time decoding path.
+
+Temporal batching can increase throughput but introduces waiting latency. It may therefore be unsuitable before:
+
+- adaptive logical measurements;
+- lattice-surgery feed-forward;
+- non-Clifford corrections;
+- operations requiring an immediate Pauli-frame decision.
+
+The implemented surface-code path remains:
+
+```text
+Stim sampling on the CPU
+        ↓
+CuPy preprocessing on the GPU
+        ↓
+PyMatching decoding on the CPU
+```
+
+The notebook demonstrates GPU preprocessing and workload reduction, not GPU minimum-weight perfect matching.
+
+## Heterogeneous Control Architecture
+
+A realistic fault-tolerant quantum-classical system may distribute work across several specialised tiers:
+
+- **Readout and local FPGA/ASIC layer:** Performs readout classification, detection-event extraction, bit packing, framing, buffering, and potentially low-latency decoding close to the quantum readout and control electronics.
+- **CPU and control-runtime layer:** Coordinates experiments, manages decoder configuration and Pauli frames, schedules logical operations, handles exceptional cases, and integrates the decoder with the wider control stack.
+- **GPU or accelerator layer:** Processes aggregated detector workloads, parallel multi-patch preprocessing, large simulation batches, calibration telemetry, and decoder-parameter optimisation.
+- **Storage and analysis layer:** Retains selected detector traces, logical-failure records, calibration data, and benchmark outputs for retrospective analysis.
+
+The appropriate division depends on:
+
+- physical-qubit technology;
+- error-correcting code;
+- decoder algorithm;
+- feed-forward deadline;
+- number of active code patches;
+- interconnect bandwidth and latency;
+- power and cooling constraints;
+- physical placement of the classical hardware.
+
+Conventional discrete-GPU systems require data to cross a host–device interconnect. Coherent CPU–GPU systems, unified-memory processors, direct peer-to-peer DMA, and shared-memory FPGA–CPU systems can reduce explicit software-managed copying.
+
+These alternatives do not eliminate the physical cost of data movement. Memory location, bandwidth, latency, cache coherence, synchronisation, and contention remain important. They must therefore be evaluated using complete-pipeline measurements rather than kernel execution time alone.
+
+## Main GPU Findings
+
+The GPU study produced the following principal conclusions:
+
+1. **Resident GPU reductions are extremely fast.**
+   Once detector data is present in GPU memory, event-count reductions can substantially outperform the equivalent NumPy operation.
+
+2. **Data movement is the dominant bottleneck.**
+   For the tested RTX 5090 path, host-to-device transfer was much more expensive than the resident counting kernel.
+
+3. **The useful crossover depends on total matrix size.**
+   Batch size and detector count jointly determine whether sufficient parallel work exists to compensate for fixed GPU overheads.
+
+4. **Bit packing reduces transfer volume but adds processing cost.**
+   Its complete benefit depends on whether packed data must be created synchronously on the CPU or is produced directly by upstream hardware.
+
+5. **Zero-event filtering can greatly reduce decoder input.**
+   In the distance-three pilot, $83.68\%$ of rows bypassed PyMatching while preserving its predictions exactly.
+
+6. **Reduced decoder input does not guarantee reduced total runtime.**
+   Transfer, mask generation, row selection, smaller decoder batches, and reconstruction must all be included.
+
+7. **The most plausible architecture is heterogeneous.**
+   FPGA or ASIC logic is better suited to the strict low-latency path, while GPUs are more appropriate for aggregated and throughput-oriented workloads.
+
+## Limitations of the GPU Study
+
+- The benchmark results are specific to the tested RTX 5090, CuPy, CUDA, Python, NumPy, Stim, PyMatching, and Windows environment.
+- Stim generates detector matrices in CPU memory, so the measured end-to-end path includes explicit host-to-device transfer.
+- The synthetic Bernoulli workload does not reproduce circuit-level detector correlations or geometry.
+- The GPU performs preprocessing rather than minimum-weight perfect-matching decoding.
+- PyMatching remains CPU-based.
+- Large-batch throughput does not directly represent single-cycle real-time latency.
+- The experiment does not directly benchmark FPGA-to-GPU DMA, coherent CPU–GPU systems, CXL-based accelerators, or FPGA-resident decoding.
+- Timing measurements include operating-system, runtime, allocation, synchronisation, and memory-pool effects.
+- The empty-row filtering result depends on physical error probability, code distance, batch size, and detector activity.
+- No claim is made that the tested discrete-GPU architecture is optimal for a fault-tolerant quantum computer.
 
 ---
 
