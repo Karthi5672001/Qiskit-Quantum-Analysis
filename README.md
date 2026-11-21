@@ -455,7 +455,8 @@ Qauntum/
 │   ├── surface_code_threshold_analysis.ipynb
 │   ├── decoder_latency_backlog.ipynb
 │   ├── decoder_complexity_analysis.ipynb
-│   └── asymmetric_noise_sensitivity.ipynb
+│   ├── asymmetric_noise_sensitivity.ipynb
+│   └── gpu_detector_preprocessing.ipynb
 ├── scripts/
 ├── figures/
 ├── results/
