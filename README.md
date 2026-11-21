@@ -136,7 +136,7 @@ The queue model evaluates:
 
 `surface_code_memory.ipynb`
 
-Logical \(X\)- and \(Z\)-memory circuits were studied across multiple code distances, syndrome-round counts, and circuit-level error probabilities.
+Logical $X$- and $Z$-memory circuits were studied across multiple code distances, syndrome-round counts, and circuit-level error probabilities.
 
 The analysis records:
 
