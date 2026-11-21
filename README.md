@@ -371,21 +371,21 @@ The output was verified against NumPy’s row-wise `packbits` operation.
 
 A synthetic dense Boolean detector matrix containing:
 
-\[
-100{,}000\times1{,}000
-\]
+$$
+100{,}000 \times 1{,}000
+$$
 
-entries, approximately 95.37 MiB, produced the following representative result:
+entries, approximately $95.37\ \mathrm{MiB}$, produced the following representative result:
 
 | Component | Median time |
 |---|---:|
-| NumPy CPU event count | 39.40 ms |
-| Host-to-device transfer | 4.71 ms |
-| Resident GPU kernel | 0.084 ms |
-| Device-to-host transfer | 0.065 ms |
-| Complete GPU pipeline | 4.49 ms |
-| Resident-data speedup | \(467.7\times\) |
-| End-to-end speedup | \(8.77\times\) |
+| NumPy CPU event count | $39.40\ \mathrm{ms}$ |
+| Host-to-device transfer | $4.71\ \mathrm{ms}$ |
+| Resident GPU kernel | $0.084\ \mathrm{ms}$ |
+| Device-to-host transfer | $0.065\ \mathrm{ms}$ |
+| Complete GPU pipeline | $4.49\ \mathrm{ms}$ |
+| Resident-data speedup | $467.7\times$ |
+| End-to-end speedup | $8.77\times$ |
 
 The resident kernel was extremely fast, but host-to-device transfer dominated the complete GPU path.
 
@@ -395,15 +395,15 @@ This means that further kernel optimisation alone would have limited value unles
 
 Real detector matrices were generated for rotated surface-code circuits at:
 
-\[
-d\in\{3,5,7,9,11\},
-\]
+$$
+d \in \{3, 5, 7, 9, 11\},
+$$
 
 with batch sizes:
 
-\[
-N\in\{1{,}000,\ 10{,}000,\ 100{,}000,\ 500{,}000\}.
-\]
+$$
+N \in \{1{,}000,\ 10{,}000,\ 100{,}000,\ 500{,}000\}.
+$$
 
 The 20-configuration sweep measured:
 
@@ -418,9 +418,10 @@ The 20-configuration sweep measured:
 - complete GPU time;
 - resident speedup;
 - transfer-inclusive speedup;
-- CPU-GPU crossover by distance and batch size.
+- CPU–GPU crossover by distance and batch size.
 
 The resident measurements describe a system in which detector data is already on the accelerator. The end-to-end measurements describe the current Stim workflow, where detector samples are created in CPU memory.
+
 
 
 
