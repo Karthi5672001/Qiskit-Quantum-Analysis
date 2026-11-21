@@ -465,23 +465,11 @@ Dense NumPy Boolean arrays use approximately one byte for each detector value, a
 
 For $N_{\mathrm{shots}}$ samples and $N_{\mathrm{detectors}}$ detectors, the packed representation requires:
 
-$$
-B_{\mathrm{packed}}
-=
-N_{\mathrm{shots}}
-\left\lceil
-\frac{N_{\mathrm{detectors}}}{8}
-\right\rceil
-\ \mathrm{bytes}.
-$$
+$$B_{\mathrm{packed}} = N_{\mathrm{shots}} \left\lceil \frac{N_{\mathrm{detectors}}}{8} \right\rceil \ \mathrm{bytes}.$$
 
-The maximum compression ratio approaches:
+The maximum compression ratio approaches
 
-$$
-\frac{B_{\mathrm{dense}}}
-     {B_{\mathrm{packed}}}
-\approx 8,
-$$
+$$\frac{B_{\mathrm{dense}}}{B_{\mathrm{packed}}} \approx 8,$$
 
 although row padding can reduce the achieved ratio when the detector count is not divisible by eight.
 
@@ -492,36 +480,15 @@ The packed pipeline performs:
 3. GPU population counting;
 4. transfer of the per-sample event counts back to the CPU.
 
-The GPU counts active detector bits without reconstructing the original dense matrix. A 256-entry lookup table stores the number of active bits in every possible byte value:
-
-$$
-0 \leq b \leq 255.
-$$
-
-Packed bytes are used as lookup-table indices, and the resulting byte-level counts are reduced across each detector row.
+The GPU counts active detector bits without reconstructing the original dense matrix. A 256-entry lookup table stores the number of active bits in every possible byte value ($0 \leq b \leq 255$). Packed bytes are used as lookup-table indices, and the resulting byte-level counts are reduced across each detector row.
 
 The complete packed-processing time includes:
 
-$$
-T_{\mathrm{packed,total}}
-=
-T_{\mathrm{CPU,pack}}
-+
-T_{\mathrm{H2D,packed}}
-+
-T_{\mathrm{GPU,popcount}}
-+
-T_{\mathrm{D2H}}.
-$$
+$$T_{\mathrm{packed,total}} = T_{\mathrm{CPU,pack}} + T_{\mathrm{H2D,packed}} + T_{\mathrm{GPU,popcount}} + T_{\mathrm{D2H}}.$$
 
 The packed-versus-dense GPU speedup is:
 
-$$
-S_{\mathrm{packed/dense}}
-=
-\frac{T_{\mathrm{dense,GPU,total}}}
-     {T_{\mathrm{packed,GPU,total}}}.
-$$
+$$S_{\mathrm{packed/dense}} = \frac{T_{\mathrm{dense,GPU,total}}}{T_{\mathrm{packed,GPU,total}}}.$$
 
 A reduction in transfer size does not automatically produce an equivalent reduction in total runtime. CPU packing and GPU population counting must also be included.
 
@@ -585,26 +552,11 @@ A zero-event row does not prove that the underlying physical process contained n
 
 Hybrid speedup is defined as:
 
-$$
-S_{\mathrm{hybrid}}
-=
-\frac{T_{\mathrm{full\,CPU\,decode}}}
-     {T_{\mathrm{hybrid,total}}},
-$$
+$$S_{\mathrm{hybrid}} = \frac{T_{\mathrm{full\,CPU\,decode}}}{T_{\mathrm{hybrid,total}}},$$
 
 where:
 
-$$
-T_{\mathrm{hybrid,total}}
-=
-T_{\mathrm{GPU,filter}}
-+
-T_{\mathrm{CPU,selection}}
-+
-T_{\mathrm{filtered\,decode}}
-+
-T_{\mathrm{reconstruction}}.
-$$
+$$T_{\mathrm{hybrid,total}} = T_{\mathrm{GPU,filter}} + T_{\mathrm{CPU,selection}} + T_{\mathrm{filtered\,decode}} + T_{\mathrm{reconstruction}}.$$
 
 The complete hybrid measurement includes:
 
@@ -619,15 +571,7 @@ A high zero-event fraction represents an opportunity to reduce decoder work, but
 
 A focused hybrid sweep was performed over:
 
-$$
-p \in \{0.001, 0.003\}, \qquad d \in \{3, 7\},
-$$
-
-and:
-
-$$
-N \in \{10{,}000, 100{,}000\}.
-$$
+$$p \in \{0.001, 0.003\}, \qquad d \in \{3, 7\}, \qquad N \in \{10{,}000, 100{,}000\}.$$
 
 This produced eight configurations. Every configuration was checked for exact prediction agreement before its timing result was accepted.
 
@@ -647,14 +591,7 @@ The aggregate classical-processing challenge arises from continuous repetition a
 
 The approximate raw syndrome-data rate is:
 
-$$
-R_{\mathrm{syndrome}}
-\approx
-N_{\mathrm{patches}}
-N_{\mathrm{checks/patch}}
-f_{\mathrm{cycle}}
-b_{\mathrm{check}},
-$$
+$$R_{\mathrm{syndrome}} \approx N_{\mathrm{patches}} \, N_{\mathrm{checks/patch}} \, f_{\mathrm{cycle}} \, b_{\mathrm{check}},$$
 
 where:
 
